@@ -1,0 +1,240 @@
+/* =======================================================================
+   Gestão de Compras e Estoque — tema visual (Fase 5)
+   Paleta: navy (estrutura) + teal (ação/marca) + âmbar (atenção) + vermelho (crítico)
+   ======================================================================= */
+
+:root {
+  --gc-navy: #16243B;
+  --gc-navy-light: #1F3654;
+  --gc-navy-soft: #27425F;
+  --gc-teal: #2EC4B6;
+  --gc-teal-dark: #21A99C;
+  --gc-amber: #F4A623;
+  --gc-red: #E2553B;
+  --gc-green: #2F9E5B;
+  --gc-bg: #F3F5F8;
+  --gc-card: #FFFFFF;
+  --gc-text: #1B2430;
+  --gc-text-muted: #6B7686;
+  --gc-border: #E4E8EE;
+  --sidebar-width: 250px;
+}
+
+body {
+  background-color: var(--gc-bg);
+  color: var(--gc-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: .925rem;
+}
+
+h1, h2, h3, h4, h5, h6, .gc-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--gc-navy);
+}
+
+a { color: var(--gc-teal-dark); }
+a:hover { color: var(--gc-navy); }
+
+/* ---------- Layout geral ---------- */
+.gc-wrapper { display: flex; min-height: 100vh; }
+
+.gc-sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--gc-navy) 0%, var(--gc-navy-light) 100%);
+  color: #C9D3DF;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.gc-sidebar .gc-brand {
+  padding: 1.25rem 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.gc-sidebar .gc-brand .gc-logo-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gc-teal);
+  box-shadow: 0 0 0 4px rgba(46,196,182,.18);
+}
+
+.gc-sidebar .gc-brand strong {
+  color: #fff;
+  font-size: 1.02rem;
+  line-height: 1.1;
+}
+
+.gc-sidebar .gc-brand small { color: #93A1B4; font-size: .72rem; }
+
+.gc-nav { padding: .75rem .65rem; flex: 1; overflow-y: auto; }
+
+.gc-nav .gc-nav-section {
+  text-transform: uppercase;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: #6F7F94;
+  padding: .9rem .6rem .35rem;
+  font-weight: 600;
+}
+
+.gc-nav a.gc-nav-link {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .55rem .65rem;
+  border-radius: .5rem;
+  color: #C9D3DF;
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 500;
+  transition: background .15s ease, color .15s ease;
+  margin-bottom: .15rem;
+}
+
+.gc-nav a.gc-nav-link i { font-size: 1rem; width: 1.25rem; text-align: center; }
+
+.gc-nav a.gc-nav-link:hover {
+  background: rgba(255,255,255,.06);
+  color: #fff;
+}
+
+.gc-nav a.gc-nav-link.active {
+  background: var(--gc-teal);
+  color: var(--gc-navy);
+  font-weight: 600;
+}
+
+.gc-sidebar-footer {
+  padding: .85rem 1.1rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+  font-size: .72rem;
+  color: #6F7F94;
+}
+
+/* ---------- Conteúdo principal ---------- */
+.gc-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+.gc-topbar {
+  background: var(--gc-card);
+  border-bottom: 1px solid var(--gc-border);
+  padding: .65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.gc-topbar .gc-page-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gc-navy);
+  margin: 0;
+}
+
+.gc-topbar .gc-breadcrumb { font-size: .78rem; color: var(--gc-text-muted); }
+
+.gc-content { padding: 1.5rem; flex: 1; }
+
+/* ---------- Cards ---------- */
+.card {
+  border: 1px solid var(--gc-border);
+  border-radius: .65rem;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04);
+}
+
+.gc-stat-card { border-radius: .75rem; border: 1px solid var(--gc-border); }
+.gc-stat-card .gc-stat-icon {
+  width: 42px; height: 42px; border-radius: .6rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.gc-stat-card .gc-stat-value { font-size: 1.6rem; font-weight: 700; color: var(--gc-navy); }
+.gc-stat-card .gc-stat-label { font-size: .78rem; color: var(--gc-text-muted); }
+
+.bg-soft-teal   { background: rgba(46,196,182,.12); color: var(--gc-teal-dark); }
+.bg-soft-amber  { background: rgba(244,166,35,.14); color: #9A6608; }
+.bg-soft-red    { background: rgba(226,85,59,.12); color: var(--gc-red); }
+.bg-soft-green  { background: rgba(47,158,91,.12); color: var(--gc-green); }
+.bg-soft-navy   { background: rgba(22,36,59,.08); color: var(--gc-navy); }
+
+/* ---------- Botões ---------- */
+.btn-gc-primary {
+  background: var(--gc-teal);
+  border-color: var(--gc-teal);
+  color: var(--gc-navy);
+  font-weight: 600;
+}
+.btn-gc-primary:hover { background: var(--gc-teal-dark); border-color: var(--gc-teal-dark); color: #fff; }
+.btn-gc-navy { background: var(--gc-navy); border-color: var(--gc-navy); color: #fff; }
+.btn-gc-navy:hover { background: var(--gc-navy-light); border-color: var(--gc-navy-light); color: #fff; }
+
+/* ---------- Badges de situação ---------- */
+.badge-situacao { font-weight: 600; font-size: .72rem; padding: .35em .65em; border-radius: .4rem; }
+.badge-ativo        { background: rgba(47,158,91,.12); color: var(--gc-green); }
+.badge-inativo      { background: rgba(107,118,134,.14); color: var(--gc-text-muted); }
+.badge-pendente     { background: rgba(244,166,35,.14); color: #9A6608; }
+.badge-aprovada     { background: rgba(47,158,91,.12); color: var(--gc-green); }
+.badge-reprovada    { background: rgba(226,85,59,.12); color: var(--gc-red); }
+.badge-cancelada    { background: rgba(107,118,134,.14); color: var(--gc-text-muted); }
+.badge-aberto       { background: rgba(226,85,59,.12); color: var(--gc-red); }
+.badge-resolvido    { background: rgba(47,158,91,.12); color: var(--gc-green); }
+.badge-entrada      { background: rgba(47,158,91,.12); color: var(--gc-green); }
+.badge-saida        { background: rgba(226,85,59,.12); color: var(--gc-red); }
+.badge-ajuste       { background: rgba(244,166,35,.14); color: #9A6608; }
+
+/* ---------- Tabelas ---------- */
+.table-gc thead th {
+  background: #F8FAFC;
+  border-bottom: 1px solid var(--gc-border);
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--gc-text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.table-gc td { vertical-align: middle; font-size: .875rem; }
+.table-gc tbody tr:hover { background: #FAFBFD; }
+
+.gc-empty-state { text-align: center; padding: 3rem 1rem; color: var(--gc-text-muted); }
+.gc-empty-state i { font-size: 2.2rem; color: var(--gc-border); display: block; margin-bottom: .5rem; }
+
+/* ---------- Notificações (sino) ---------- */
+.gc-bell-btn { position: relative; }
+.gc-bell-dot {
+  position: absolute; top: 2px; right: 2px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--gc-red);
+  border: 2px solid #fff;
+}
+
+/* ---------- Toasts ---------- */
+.toast-container { z-index: 1080; }
+
+/* ---------- Formulários ---------- */
+label.form-label { font-weight: 600; font-size: .83rem; color: var(--gc-navy); }
+.form-control:focus, .form-select:focus {
+  border-color: var(--gc-teal);
+  box-shadow: 0 0 0 .2rem rgba(46,196,182,.18);
+}
+.gc-required::after { content: " *"; color: var(--gc-red); }
+
+/* ---------- Itens dinâmicos (solicitação de compra) ---------- */
+.gc-item-row { background: #FAFBFD; border: 1px solid var(--gc-border); border-radius: .5rem; padding: .85rem; margin-bottom: .65rem; }
+
+@media (max-width: 991.98px) {
+  .gc-sidebar { position: fixed; left: -100%; top: 0; z-index: 1040; transition: left .2s ease; height: 100vh; }
+  .gc-sidebar.show { left: 0; }
+  .gc-main { width: 100%; }
+}
